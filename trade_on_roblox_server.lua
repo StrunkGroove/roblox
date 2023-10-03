@@ -14,6 +14,7 @@ function items_start()
     end
     return list_start, list_pets_start
 end
+
 function log_order()
     list_end = {}
     for i, v in next, getrenv()._G.PlayerData.Weapons.Owned do
@@ -41,6 +42,7 @@ function log_order()
         end
     end
 end
+
 function order()
     
     list_name = {}
@@ -66,6 +68,7 @@ function order()
     end
     return list_name, list_number, list_type
 end
+
 function trade()
     local success, result = pcall(function()
         game:GetService("ReplicatedStorage").Trade.SendRequest:InvokeServer(game.Players[username])
@@ -77,6 +80,7 @@ function trade()
         return print("Ошибка: ", result)
     end
 end
+
 function cancel_request()
     local success, result = pcall(function()
         game:GetService("ReplicatedStorage").Trade.CancelRequest:FireServer()
@@ -88,6 +92,7 @@ function cancel_request()
         return print("Ошибка: ", result)
     end
 end
+
 function checkCont(cont)
     for _, obj in pairs(cont:GetChildren()) do
         if obj.ClassName == 'Frame' and obj.Visible then
@@ -96,6 +101,7 @@ function checkCont(cont)
     end
     return true
 end
+
 function player()
     local check_player = game.Players:FindFirstChild(username)
     if check_player then 
@@ -104,6 +110,7 @@ function player()
         return false
     end
 end
+
 jumped = function()
     local tradeGui = game.Players.LocalPlayer.PlayerGui.TradeGUI
     local time_trade = 0
@@ -152,6 +159,7 @@ jumped = function()
         end
     end 
 end
+
 function list_length(t)
     local len = 0
     for _,_ in pairs(t) do
@@ -159,6 +167,7 @@ function list_length(t)
     end
     return len
 end
+
 function trade_global()
     my_bot_name = tostring (game.Players.LocalPlayer)
     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Ready for trade", "normalchat")
@@ -231,6 +240,7 @@ function trade_global()
         f_3()
     end
 end
+
 function afk()
     while true do
         local success, result = pcall(function()
