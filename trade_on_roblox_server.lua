@@ -251,24 +251,24 @@ function afk()
   end
 end
 
--- function check()
---   while true do
---     local valid = isfile("/check_afk/" .. my_bot_name .. ".py")
---     local bot_name = tostring (game.Players.LocalPlayer)
---     local check_player = game.Players:FindFirstChild(bot_name)
+function check()
+  while true do
+    local valid = isfile("/check_afk/" .. my_bot_name .. ".py")
+    local bot_name = tostring (game.Players.LocalPlayer)
+    local check_player = game.Players:FindFirstChild(bot_name)
     
---     if check_player then 
---         return true
---     else 
---         return false
---     end
+    if check_player then 
+        return true
+    else 
+        return false
+    end
 
---     if valid and check_player then
---         delfile("/check_afk/" .. my_bot_name .. ".py")
---     end
---     wait(1)
---   end
--- end
+    if valid and check_player then
+        delfile("/check_afk/" .. my_bot_name .. ".py")
+    end
+    wait(1)
+  end
+end
 
 while not game:IsLoaded() do task.wait() end
 wait(20)
